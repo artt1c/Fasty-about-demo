@@ -1,22 +1,23 @@
+// Swiper
+
 const pageSwiper = new Swiper('.wrapper', {
-  speed: 800,
+  speed: 500,
   slidesPerView: 'auto',
   direction: "vertical",
   loop: false,
   // freeMode: true,
-  // spaceBetween: 50,
+  spaceBetween: 160,
   mousewheel: true,
   observer: true,
 
   // For dev
-  initialSlide: 1,
+  initialSlide: 2,
 })
 
 
-// Добавить справа зверху навігацію для aboutSwiper
 const aboutSwiper = new Swiper('.top-slider', {
   grabCursor: true,
-  speed: 800,
+  speed: 1000,
   slidesPerView: 'auto',
   loop: false,
   spaceBetween: 250,
@@ -32,11 +33,11 @@ const aboutSwiper = new Swiper('.top-slider', {
   },
 })
 
-const partnersSwiper = new Swiper('.partners__container', {
-  speed: 800,
+const partnersSwiper = new Swiper('.partners__swiper', {
   mousewheel: true,
   freeMode: true,
-  slidesPerView: 3,
+  spaceBetween: 20,
+  slidesPerView: 'auto',
   // whatchOverflow: true,
   direction: "vertical",
   scrollbar: {
@@ -47,15 +48,35 @@ const partnersSwiper = new Swiper('.partners__container', {
   nested: true,
 })
 
-const partnersSlide = document.querySelector('.partners__container')
+const partnersSlide = document.querySelector('.partners__swiper')
+const mapElement = document.querySelector('#map')
 
 partnersSlide.addEventListener('mouseenter', (e) => {
-  console.log('mouseenter')
   pageSwiper.mousewheel.disable()
 })
 
 partnersSlide.addEventListener('mouseleave', (e) => {
-  console.log('mouseleave')
   pageSwiper.mousewheel.enable()
 })
 
+mapElement.addEventListener('mouseenter', (e) => {
+  pageSwiper.mousewheel.disable()
+})
+
+mapElement.addEventListener('mouseleave', (e) => {
+  pageSwiper.mousewheel.enable()
+})
+
+
+// Google map
+
+async function initMap() {
+  const { Map } = await google.maps.importLibrary("maps");
+
+  let map = new Map(document.getElementById("map"), {
+    center: { lat: 49.58999845237651, lng: 34.55071308968833 },
+    zoom: 12,
+  });
+}
+
+initMap();

@@ -330,6 +330,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 0 40px;
   background-color: #E8E6EF;
   padding: 20px;
   margin-top: 80px;
@@ -338,13 +339,132 @@ body {
 }
 
 .map-area__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-area__info-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.map-area__info-zone {
+  display: flex;
+  gap: 0 20px;
+  align-items: center;
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 7px 12px 4px rgba(0,0,0,0.15);
+}
+
+.zone__about-title {
+  font-size: 24px;
+  font-weight: 600;
+  /* padding-bottom: 5px;
+  margin-bottom: 8px; */
+}
+
+.zone-img {
+  width: 80px;
+  height: 80px;
+}
+
+.map-area__address {
+  max-width: 520px;
+  margin-top: auto;
+}
+
+.map-area__address-search-error {
+  position: relative;
+  height: 27px;
+  color: #d8000c;
+  font-weight: bold;
+  padding: 5px calc(27px + 3%) 10px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  background-image: url(../image/error.svg);
+  background-repeat: no-repeat;
+  background-position: 3% 40%;
+  background-size: 22px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.error-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.map-area__address-search-error::after {
+  content: '';
+  position: absolute;
+  width: 94%;
+  height: 4px;
+  top: 77%;
+  left: 3%;
+  border-radius: 8px;
+  background-color: #f36767;
+}
+
+.map-area__address-search {
+  position: relative;
+  display: flex;
+  gap: 0 20px;
+  justify-content: space-between;
+  height: 44px;
+  z-index: 2;
+}
+
+.map-area__address-search-input {
+  flex: 3;
+  padding: 5px 10px;
+  border-radius: 16px;
+  border: none;
+  font-size: 24px;
+  color: #313638;
+  background-color: #E8E6EF;
+  box-shadow: inset 2px 2px 4px 2px rgba(0,0,0,0.25);
+}
+
+.map-area__address-search-input:focus {
+  outline: rgba(49,54,56,.5) 2px solid;
+}
+
+.map-area__address-search-input::placeholder {
+  font-size: 16px;
+}
+
+.map-area__address-search-button {
+  flex: 1;
+  background-color: #f36767;
+  color: #E8E6EF;
+  border-radius: 16px;
+  border: none;
+  padding: 5px 8px;
+  font-size: 24px;
+  font-weight: 600;
+  border: 2px solid rgba(49,54,56,.3);
+  box-shadow: 4px 4px 5px 2px rgba(0,0,0,0.25);
+}
+
+.map-area__address-search-button:hover {
+  background-color: #ef4848;
+}
+
+.map-area__address-search-button:active {
+  margin-top: 2px;
 }
 
 .map-area__interactive-map {
   width: 600px;
   height: 700px;
   border-radius: 16px;
-  box-shadow: 0px 7px 12px 4px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
 }
 
 /* Footer */
@@ -353,7 +473,6 @@ body {
   background-color: #f36767;
   height: 100px;
   width: 100%;
-  z-index: 10;
 }
 
 
